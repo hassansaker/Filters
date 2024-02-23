@@ -45,10 +45,14 @@ clc;
 %upper stop band edge wpl=0.9pi
 %pass band attenuation Ap=3dB
 %stop band attenuation Ap=18dB
-wp=[0.4 ,0.6];
-ws=[0.1,0.9];
-Ap=3;
-As=18;
+ws=zeros(1,2);
+wp=zeros(1,2);
+ws(1)=input('enter the normalized frequency at lower stop band');
+ws(2)=input('enter the normalized frequency at upper stop band');
+wp(1)=input('enter the normalized frequency at lower pass band');
+wp(2)=input('enter the normalized frequency at upper pass band');
+Ap=input('enter the attenuation in pass band ');
+As=input('enter the attenuation in stop band');
 [N,wc]=buttord(wp,ws,Ap,As);
 %unwrapping to analog frequency
 Wc=2*tan(wc*pi/2);
