@@ -45,9 +45,6 @@ As=input('enter the attenuation in stop band');
 [z,p,k] = buttap(N);
 [nem,den]=zp2tf(z,p,k);
 W=2*tan(wc*pi/2);%unwrapping to analog frequency
-[nem_,den_]=lp2bp(nem,den,W);
-figure('Name','normalized LP');
-freqs(nem,den);
-[b,a]=bilinear(nem_,den_,1);
-figure('Name','Digital BW filter');
-freqz(b,a);
+[nem_,den_]=lp2bp(nem,den);
+print(hello);
+%%hassan saker
