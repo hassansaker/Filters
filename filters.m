@@ -66,3 +66,13 @@ freqs(nem,den);
 [b,a]=bilinear(nem_,den_,1);
 figure('Name','Digital BW filter');
 freqz(b,a);
+%%
+clear all;
+clc;
+%BS filter
+%lower pass band edge wsl=0.1pi
+%lower stop band edge wpl=0.4pi
+%upper stop band edge wpl=0.6pi
+%upper pass band edge wpl=0.8pi
+%pass band attenuation Ap=3dB
+%stop band attenuation Ap=18dB
