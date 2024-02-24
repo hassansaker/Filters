@@ -76,3 +76,24 @@ clc;
 %upper pass band edge wpl=0.8pi
 %pass band attenuation Ap=3dB
 %stop band attenuation Ap=18dB
+ws=zeros(1,2);
+wp=zeros(1,2);
+ws(1)=input('enter the normalized frequency at lower stop band');
+ws(2)=input('enter the normalized frequency at upper stop band');
+wp(1)=input('enter the normalized frequency at lower pass band');
+wp(2)=input('enter the normalized frequency at upper pass band');
+Ap=input('enter the attenuation in pass band ');
+As=input('enter the attenuation in stop band');
+[N,wc]=buttord(wp,ws,Ap,As);
+%unwrapping to analog frequency
+Wc=2*tan(wc*pi/2);
+[z,p,k] = buttap(N);
+[nem,den]=zp2tf(z,p,k);
+w0=(Wc(1)+Wc(2))/2;%center frequency
+BW=abs(Wc(1)-Wc(2));%Bandwidth
+[nem_,den_]=lp2bp(nem,den,w0,BW);
+figure('Name','normalized LP');
+freqs(nem,den);
+[b,a]=bilinear(nem_,den_,1);
+figure('Name','Digital BW filter');
+freqz(b,a);
