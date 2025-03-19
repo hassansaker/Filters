@@ -62,4 +62,9 @@ This MATLAB script is designed to create and analyze digital filters using the B
 - Ensure that the input frequencies are normalized (between 0 and 1, where 1 corresponds to half the sampling rate).
 - The script uses the bilinear transform to convert analog filters to digital filters.
 
+## Usage
+   ```bash
+   git clone https://github.com/hassansaker/Filters.git
+
+
 
