@@ -66,5 +66,3 @@ This MATLAB script is designed to create and analyze digital filters using the B
    ```bash
    git clone https://github.com/hassansaker/Filters.git
 
-
-
